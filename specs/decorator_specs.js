@@ -1,5 +1,6 @@
 const assert = require('assert')
 const Decorator = require('../models/Decorator.js')
+const Paint = require('../models/Paint.js')
 
 // Mocha functions describe() and it():
 
@@ -12,19 +13,37 @@ const Decorator = require('../models/Decorator.js')
 
 describe('Decorator', function () {
     let decorator;
+    let paintCan1;
+    let paintCan2;
 
-    this.beforeEach(function () {
-        decorator = new Decorator([])
+    beforeEach(function () {
+        decorator = new Decorator([], 0);
+        paintCan1 = new Paint(7);
+        paintCan2 = new Paint(94);
+        paintCan3 = new Paint(11)
+
+        // grabbing decorator object and running addPaintCanToPaintStock function and passing in the instance of paint as an argument
+        decorator.addPaintCanToPaintStock(paintCan1);
+        decorator.addPaintCanToPaintStock(paintCan2);
+        decorator.addPaintCanToPaintStock(paintCan3);
+
     })
-    
+
     it('paintStock property should be an array', function () {
-    const actual = Array.isArray(decorator.paintStock)
-    assert.deepStrictEqual(actual, true)
+        const actual = Array.isArray(decorator.paintStock);
+        assert.strictEqual(actual, true);
     })
-    
+
+    it('should be able to add paint can to paint stock (paintStock)', function () {
+        const actual = decorator.paintStock.length;
+        assert.strictEqual(actual, 3);
+    })
 })
+
+    // it('should be able to get total paint litres (totalPaintLitres) in paint stock (paintStock)')
+
 
 
 
 // const Decorator = function (paintStock) {
-//     this.paintStock = [] // empty array for paintStock
+//     this.paintStock = 0 // paintStock at 0, no paint yet

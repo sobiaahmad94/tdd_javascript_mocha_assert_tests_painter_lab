@@ -5,6 +5,7 @@ const Paint = function (numberOfPaintLitres) {
 // ' this ' just refers to Paint eh
 
 // note given: one litre of paint covers one square metre
+// I could make it that one paint can is one litre
 
 // some tests I could do:
 
