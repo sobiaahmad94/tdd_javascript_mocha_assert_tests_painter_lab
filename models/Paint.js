@@ -1,5 +1,5 @@
 const Paint = function (numberOfPaintLitres) {
-    this.numberOfPaintLitres = []
+    this.numberOfPaintLitres = numberOfPaintLitres
 }
 
 // ' this ' just refers to Paint eh
